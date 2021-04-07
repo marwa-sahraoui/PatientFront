@@ -1,0 +1,25 @@
+<div style="width: 400px; margin: auto;">
+  <div class="submit-form">
+    <div *ngIf="!submitted">
+
+      <div class="form-group">
+        <label for="e">Note</label>
+        <input
+          class="form-control"
+          id="e"
+          required
+          [(ngModel)]="pathistory.e"
+          name="e"
+        />
+      </div>
+      <button (click)="createPathistory()" class="btn btn-success">Submit</button>
+    </div>
+
+    <div *ngIf="submitted">
+      <h3>You submitted successfully !</h3>
+      <a class="btn btn-success mr-2" (click)="newPathistory()">Add</a>
+      <a class="btn btn-success" routerLink="/pathistory/">List of Patient's history</a>
+    </div>
+  </div>
+</div>
+

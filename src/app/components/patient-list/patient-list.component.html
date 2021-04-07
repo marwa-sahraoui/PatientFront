@@ -1,0 +1,73 @@
+<div class="list row">
+  <div class="col-md-8">
+    <div class="input-group mb-4">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search by phone"
+        [(ngModel)]="phone"
+      />
+      <div class="input-group-append">
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          (click)="searchByPhone()"
+        >
+          Search
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <h4>Patient List</h4>
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        *ngFor="let patient of patients; let i = index"
+        [class.active]="i == currentIndex"
+        (click)="setCurrentPatient(patient, i)"
+      >
+        {{patient.family}} {{patient.given}} - {{patient.sex}}
+      </li>
+    </ul>
+  </div>
+
+  <div class="col-md-6">
+    <div *ngIf="currentPatient">
+      <h4>Product</h4>
+      <div>
+        <label><strong>Family:</strong></label> {{currentPatient.family}}
+      </div>
+      <div>
+        <label><strong>Given:</strong></label> {{currentPatient.given}}
+      </div>
+      <div>
+        <label><strong>Dob:</strong></label> {{currentPatient.dob}}
+      </div>
+      <div>
+        <label><strong>Sex:</strong></label> {{currentPatient.sex}}
+      </div>
+      <div>
+        <label><strong>Address:</strong></label> {{currentPatient.address}}
+      </div>
+      <div>
+        <label><strong>Phone:</strong></label> {{currentPatient.phone}}
+      </div>
+
+      <a class="btn btn-warning" routerLink="/patient/{{currentPatient.id}}">
+        Edit
+      </a>
+      <div>
+      <a class="btn btn-warning" routerLink="/addpathistory/{{currentPatient.id}}">
+      Add Patient's History
+      </a>
+      </div>
+    </div>
+
+
+    <div *ngIf="!currentPatient">
+      <br />
+      <p>Please click on a patient</p>
+    </div>
+  </div>
+</div>

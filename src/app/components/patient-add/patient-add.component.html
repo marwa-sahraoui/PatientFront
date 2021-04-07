@@ -1,0 +1,81 @@
+<div style="width: 500px; margin: auto;">
+  <div class="submit-form">
+    <div *ngIf="!submitted">
+      <div class="form-group">
+        <label for="family">Family</label>
+        <input
+          type="text"
+          class="form-control"
+          id="family"
+          required
+          [(ngModel)]="patient.family"
+          name="family"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="given">Given</label>
+        <input
+          class="form-control"
+          id="given"
+          required
+          [(ngModel)]="patient.given"
+          name="given"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="dob">Dob</label>
+        <input
+          class="form-control"
+          id="dob"
+          required
+          [(ngModel)]="patient.dob"
+          name="dob"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="sex">Sex</label>
+        <input
+          class="form-control"
+          id="sex"
+          required
+          [(ngModel)]="patient.sex"
+          name="sex"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="address">Address</label>
+        <input
+          class="form-control"
+          id="address"
+          required
+          [(ngModel)]="patient.address"
+          name="address"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input
+          class="form-control"
+          id="phone"
+          required
+          [(ngModel)]="patient.phone"
+          name="phone"
+        />
+      </div>
+
+        <button (click)="createPatient()" class="btn btn-success">Submit</button>
+    </div>
+
+    <div *ngIf="submitted">
+      <h3>You submitted successfully !</h3>
+      <a class="btn btn-success mr-2" (click)="newPatient()">Add</a>
+      <a class="btn btn-success" routerLink="/patient/">List Patients</a>
+    </div>
+  </div>
+</div>
+
